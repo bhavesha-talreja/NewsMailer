@@ -18,8 +18,10 @@ for item in content["articles"][:20]:
         url = item.get("url")
         lines.append(f"{title}\n{description}\n{url}")
 
-emailbody = "Subject: Today's News\n\n".join(lines)
-print("emailbody",emailbody)
+emailbody = "\n\n".join(lines)
+
+emailbody = f"Subject: Today's News\n\n{emailbody}"
+
 
 emailbody = emailbody.encode('utf-8')
 send_email.send_email(emailbody)
